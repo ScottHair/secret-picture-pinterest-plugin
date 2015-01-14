@@ -205,7 +205,7 @@ if (isset($secretpp)) {
 
 	// Actions
 	add_action('wp_enqueue_scripts', array(&$secretpp, 'enqueue_these_scripts'));	// Enqueues the pinterest script
-	add_action('admin_menu', 'SecretPicturePinterestPlugin_ap');					// Ads the Admin Panel
+	add_action('admin_menu', 'SecretPicturePinterestPlugin_ap');					// Adds the Admin Panel
 
 	// Filters
 	add_filter('the_content', array(&$secretpp, 'test_content_addition'));			// Main work horse of plugin adds appropriate content
