@@ -96,7 +96,7 @@ if (!class_exists("SecretPicturePinterest")) {
 <?php endif; ?>
 
 <div class="submit">
-<input type="submit" name="update_secretPicturePinterestSeriesSettings" value="<?php _e('Update Settings', 'SecretPicturePinterstPlugin') ?>" /></div>
+<input type="submit" class="button-primary" name="update_secretPicturePinterestSeriesSettings" value="<?php _e('Update Settings', 'SecretPicturePinterstPlugin') ?>" /></div>
 </form>
 </div>
 
