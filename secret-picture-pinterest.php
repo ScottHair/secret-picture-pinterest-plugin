@@ -62,42 +62,82 @@ if (!class_exists("SecretPicturePinterest")) {
 			<?php } ?>
 
 <div class=wrap>
-<form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
-<h2>Secret Pinterest Picture Plugin Settings</h2>
+	<form method="post" action="<?php echo $_SERVER[" REQUEST_URI "]; ?>">
+		<h2>Secret Pinterest Picture Plugin Settings</h2>
 
-<h3>Insert the PinIt Javascript file?</h3>
-<p>Selecting "Yes" will insert the "pinit.js" file in the header. Use the "No" option if the PinIt javascript file is inserted somewhere else in either your theme or other plugins.</p>
-<p><label for="secretPPinclude_yes"><input type="radio" id="secretPPinclude_yes" name="secretPPincludeJS" value="true" <?php if ($devOptions['include_js'] == "true") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPinclude_no"><input type="radio" id="secretPPinclude_no" name="secretPPincludeJS" value="false" <?php if ($devOptions['include_js'] == "false") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> No</label></p>
+		<h3>Insert the PinIt Javascript file?</h3>
+		<p>Selecting "Yes" will insert the "pinit.js" file in the header. Use the "No" option if the PinIt javascript file is inserted somewhere else in either your theme or other plugins.</p>
+		<p>
+			<label for="secretPPinclude_yes">
+				<input type="radio" id="secretPPinclude_yes" name="secretPPincludeJS" value="true" <?php if ($devOptions[ 'include_js']=="true" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="secretPPinclude_no">
+				<input type="radio" id="secretPPinclude_no" name="secretPPincludeJS" value="false" <?php if ($devOptions[ 'include_js']=="false" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> No</label>
+		</p>
 
-<h3>Use the PinIt button below the title of the post?</h3>
-<p>Selecting "Yes" will insert a [Pin It] button below the title of the post. Use the "No" option to omit this button.</p>
-<p><label for="secretPPuseButton_yes"><input type="radio" id="secretPPuseButton_yes" name="secretPPuseButton" value="true" <?php if ($devOptions['use_button'] == "true") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Yes </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPuseButton_no"><input type="radio" id="secretPPuseButton_no" name="secretPPuseButton" value="false" <?php if ($devOptions['use_button'] == "false") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> No </label></p>
+		<h3>Use the PinIt button below the title of the post?</h3>
+		<p>Selecting "Yes" will insert a [Pin It] button below the title of the post. Use the "No" option to omit this button.</p>
+		<p>
+			<label for="secretPPuseButton_yes">
+				<input type="radio" id="secretPPuseButton_yes" name="secretPPuseButton" value="true" <?php if ($devOptions[ 'use_button']=="true" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;
+			<label for="secretPPuseButton_no">
+				<input type="radio" id="secretPPuseButton_no" name="secretPPuseButton" value="false" <?php if ($devOptions[ 'use_button']=="false" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> No</label>
+		</p>
 
-<?php if ($devOptions['use_button'] == 'true'): ?>
-<div class="secretPPsettings" style="margin:20px; padding:10px; background-color: #fff; -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1); box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);">
-<h3>What size Pin It button would you like?</h3>
-<p><label for="secretPPsize_large"><input type="radio" id="secretPPsize_large" name="secretPPsize" value="large" <?php if ($devOptions['button_size'] == "large") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Large </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPsize_small"><input type="radio" id="secretPPsize_small" name="secretPPsize" value="small" <?php if ($devOptions['button_size'] == "small") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Small </label></p>
-<br />
-<h3>What shape Pin It button would you like?</h3>
-<p>If you choose Circular shape, color, language and pin count selectors will not apply. </p>
-<p><label for="secretPPshape_rect"><input type="radio" id="secretPPshape_rect" name="secretPPshape" value="rect" <?php if ($devOptions['button_shape'] == "rect") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Rectangle </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPshape_round"><input type="radio" id="secretPPshape_round" name="secretPPshape" value="round" <?php if ($devOptions['button_shape'] == "round") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Circular </label></p>
-<br />
-<h3>What color Pin It button would you like?</h3>
-<p><label for="secretPPcolor_red"><input type="radio" id="secretPPcolor_red" name="secretPPcolor" value="red" <?php if ($devOptions['button_color'] == "red") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Red </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPcolor_gray"><input type="radio" id="secretPPcolor_gray" name="secretPPcolor" value="gray" <?php if ($devOptions['button_color'] == "gray") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Gray </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPcolor_white"><input type="radio" id="secretPPcolor_white" name="secretPPcolor" value="white" <?php if ($devOptions['button_color'] == "white") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> White </label></p>
-<br />
-<h3>What language do you want on your Pin It button?</h3>
-<p><label for="secretPPlang_en"><input type="radio" id="secretPPlang_en" name="secretPPlang" value="en" <?php if ($devOptions['button_lang'] == "en") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> English </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPlang_ja"><input type="radio" id="secretPPlang_ja" name="secretPPlang" value="ja" <?php if ($devOptions['button_lang'] == "ja") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Japanese </label></p>
-<br />
-<h3>Where would you like the Pin Count shown?</h3>
-<p><label for="secretPPshowPC_above"><input type="radio" id="secretPPshowPC_above" name="secretPPshowPC" value="above" <?php if ($devOptions['show_pin_count'] == "above") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?> /> Above the Button </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPshowPC_beside"><input type="radio" id="secretPPshowPC_beside" name="secretPPshowPC" value="beside" <?php if ($devOptions['show_pin_count'] == "beside") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Beside the Button </label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="secretPPshowPC_none"><input type="radio" id="secretPPshowPC_none" name="secretPPshowPC" value="none" <?php if ($devOptions['show_pin_count'] == "none") { _e('checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Not Shown </label></p>
+		<?php if ($devOptions[ 'use_button']=='true' ): ?>
+		<div class="secretPPsettings" style="margin:20px; padding:10px; background-color: #fff; -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1); box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);">
+			<h3>What size Pin It button would you like?</h3>
+			<p>
+				<label for="secretPPsize_large">
+					<input type="radio" id="secretPPsize_large" name="secretPPsize" value="large" <?php if ($devOptions[ 'button_size']=="large" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Large</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPsize_small">
+					<input type="radio" id="secretPPsize_small" name="secretPPsize" value="small" <?php if ($devOptions[ 'button_size']=="small" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Small</label>
+			</p>
+			<br />
+			<h3>What shape Pin It button would you like?</h3>
+			<p>If you choose Circular shape, color, language and pin count selectors will not apply.</p>
+			<p>
+				<label for="secretPPshape_rect">
+					<input type="radio" id="secretPPshape_rect" name="secretPPshape" value="rect" <?php if ($devOptions[ 'button_shape']=="rect" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Rectangle</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPshape_round">
+					<input type="radio" id="secretPPshape_round" name="secretPPshape" value="round" <?php if ($devOptions[ 'button_shape']=="round" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Circular</label>
+			</p>
+			<br />
+			<h3>What color Pin It button would you like?</h3>
+			<p>
+				<label for="secretPPcolor_red">
+					<input type="radio" id="secretPPcolor_red" name="secretPPcolor" value="red" <?php if ($devOptions[ 'button_color']=="red" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Red</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPcolor_gray">
+					<input type="radio" id="secretPPcolor_gray" name="secretPPcolor" value="gray" <?php if ($devOptions[ 'button_color']=="gray" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Gray</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPcolor_white">
+					<input type="radio" id="secretPPcolor_white" name="secretPPcolor" value="white" <?php if ($devOptions[ 'button_color']=="white" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> White</label>
+			</p>
+			<br />
+			<h3>What language do you want on your Pin It button?</h3>
+			<p>
+				<label for="secretPPlang_en">
+					<input type="radio" id="secretPPlang_en" name="secretPPlang" value="en" <?php if ($devOptions[ 'button_lang']=="en" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> English</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPlang_ja">
+					<input type="radio" id="secretPPlang_ja" name="secretPPlang" value="ja" <?php if ($devOptions[ 'button_lang']=="ja" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Japanese</label>
+			</p>
+			<br />
+			<h3>Where would you like the Pin Count shown?</h3>
+			<p>
+				<label for="secretPPshowPC_above">
+					<input type="radio" id="secretPPshowPC_above" name="secretPPshowPC" value="above" <?php if ($devOptions[ 'show_pin_count']=="above" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Above the Button</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPshowPC_beside">
+					<input type="radio" id="secretPPshowPC_beside" name="secretPPshowPC" value="beside" <?php if ($devOptions[ 'show_pin_count']=="beside" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Beside the Button</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="secretPPshowPC_none">
+					<input type="radio" id="secretPPshowPC_none" name="secretPPshowPC" value="none" <?php if ($devOptions[ 'show_pin_count']=="none" ) { _e( 'checked="checked"', "SecretPicturePinterestPlugin"); }?>/> Not Shown</label>
+			</p>
 
-</div>
+		</div>
 
-<?php endif; ?>
+		<?php endif; ?>
 
-<div class="submit">
-<input type="submit" class="button-primary" name="update_secretPicturePinterestSeriesSettings" value="<?php _e('Update Settings', 'SecretPicturePinterstPlugin') ?>" /></div>
-</form>
+		<div class="submit">
+			<input type="submit" class="button-primary" name="update_secretPicturePinterestSeriesSettings" value="<?php _e('Update Settings', 'SecretPicturePinterstPlugin') ?>" />
+		</div>
+	</form>
 </div>
 
 		<?php }
@@ -164,7 +204,7 @@ if (!class_exists("SecretPicturePinterest")) {
 
 				// This section adds pin meta data to all the images on the post
 				$pattern = '/<img(.*?)src="(.*?).(bmp|gif|jpeg|jpg|png)"(.*?)>/i';
-			  	$replacement = '<img$1src="$2.$3" data-pin-description=\''.$pinterest_image_meta.'\'$4>';
+				$replacement = '<img$1src="$2.$3" data-pin-description=\''.$pinterest_image_meta.'\'$4>';
 				$content = preg_replace( $pattern, $replacement, $content );
 
 				$content = $new_content . $content;
