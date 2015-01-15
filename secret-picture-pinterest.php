@@ -2,7 +2,7 @@
 /*
 Plugin Name: Secret Picture Pinterest Plugin
 Plugin URI: http://twodeuces.com/
-Version: 0.1.2
+Version: 1.1.2
 Author: Scott Hair
 Description: Adds a link to to a unique image for use in pinterest pins. It collects url and met description information from Custom Fields for the post.
 */
